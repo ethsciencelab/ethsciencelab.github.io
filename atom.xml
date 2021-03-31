@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ethsciencelab.github.io</id>
     <title>Eth Science Lab</title>
-    <updated>2021-03-28T02:44:03.404Z</updated>
+    <updated>2021-03-31T13:29:56.008Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ethsciencelab.github.io"/>
     <link rel="self" href="https://ethsciencelab.github.io/atom.xml"/>
@@ -16,7 +16,12 @@
         <link href="https://ethsciencelab.github.io/post/关于 eth-science-lab/">
         </link>
         <updated>2021-03-26T16:00:00.000Z</updated>
-        <content type="html"><![CDATA[<p>Eth Science Labs 关于理性主义，加密货币。</p>
+        <content type="html"><![CDATA[<p>Eth Science Labs 是一个私人博客。它关于以太坊，更关于逻辑、科学、多元文化、自由和爱。</p>
+<p>最初的灵感来源于我经常逛的社区：Less Wrong，这是一个理性主义者集聚的场地。此外，Slate Star Codex 的作者 Scott Alexander，以及以太坊的创始人 Vitalik  Buterin 对我的影响也非常大。</p>
+<blockquote>
+<p>Certainly, most people on LessWrong examine our lives more carefully than the rest of the world. A lot of us have clear goals. Maybe not a full, cohesive belief structure, but pretty clear.</p>
+</blockquote>
+<p>我希望这个博客也是遵循相同的宗旨，分享一些有趣的有意思的东西。更重要的，或许是保持持续而又仔细的社会探索，将事物关联在一起，筛选从而塑造想法。现在，是时候参与这场有趣的游戏啦！<img src="https://ethsciencelab.github.io/post-images/1617197382141.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
