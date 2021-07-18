@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ethsciencelab.github.io</id>
     <title>Eth Science Lab</title>
-    <updated>2021-07-18T13:05:10.242Z</updated>
+    <updated>2021-07-18T13:07:25.793Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ethsciencelab.github.io"/>
     <link rel="self" href="https://ethsciencelab.github.io/atom.xml"/>
@@ -377,43 +377,6 @@ III
 <p>记住：莫洛克不会同意这个 99.99999% 的胜利！老鼠们在一个小岛上竞争繁殖，就绝不会留出哪怕一点点地方作为保护区留给几只老鼠快乐地生活、搞艺术。癌细胞也不会因为氧气对躯体的存活很重要就放过肺。竞争和优化是个盲目的过程，它们会完全剥夺全部星系。</p>
 <p>（他们累断了脊梁送火神上天！砖石路，树木，无线电，吨位！把城市举向无处不在的天堂！）</p>
 <p>我们累断了脊梁送莫洛克上，但除非有什么改变，否则胜利的将是它，而不是我们。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Layer2 & zk rollup]]></title>
-        <id>https://ethsciencelab.github.io/post/zk-rollup/</id>
-        <link href="https://ethsciencelab.github.io/post/zk-rollup/">
-        </link>
-        <updated>2021-04-01T16:03:55.000Z</updated>
-        <content type="html"><![CDATA[<p>ZK rollup 简介：</p>
-<ul>
-<li>以太坊网络拥堵，矿工费高，影响以太坊生态，尤其是 defi 的发展 -&gt; layer 2</li>
-<li>有多种方法可以实现 Layer 2，zk rollup 是其中的一种</li>
-<li>可以把 zk rollup 想成一个链下的区块链（相对于主链），大家在 zk rollup 进行交易之后，会汇总成一份状态更新，然后用零知识证明的方式提交到主链</li>
-<li>对于主链的矿工来说，他只需要验证一份交易，就等于验证了很多笔交易，因此实现扩容</li>
-<li>zksync 是 matter labs 推出的 zk rollup 产品。不同公司都可以推出自己的 zk rollup 方案，会产生好多个 zk rollup。</li>
-</ul>
-<p>zk rollup signing key</p>
-<ul>
-<li>在以太坊主链会有一个智能合约，可以想成是放在 L1 的金库，在 L2 会有一个相对应的金库
-<ul>
-<li>譬如我今天要使用 A 公司的 L2，我就要去 A 合约注册（L1-address, L2-public key)</li>
-<li>L2-public key 只要符合 A 公司的格式要求就可以，不见得一定要按照他们提供的方法生成</li>
-</ul>
-</li>
-<li>zksync 提供的做法是用 L1 的私钥对一串固定的 message 做签字，这个动作是在 zksync 提供的界面进行，产生的这个签名就是使用者在 L2 的私钥。
-<ul>
-<li>想法：这样一来，zksync 就可以直接确认该名使用者真的拥有特定的这个 L1 的私钥</li>
-</ul>
-</li>
-<li>zksync 要这么做的原因：因为主链的私钥只有 32 bytes，而 zksync 在 L2 用的新曲线（jubjub），私钥长度是 64 bytes。
-<ul>
-<li>使用新曲线是为了提升安全性提及增加运算效率</li>
-</ul>
-</li>
-<li>但是因为 L2 私钥的产生是在 zksync 的界面进行，如果攻击者将使用者带到一个长得很像但恶意的界面，使用者的私钥就会泄露。</li>
-<li>甚至可能使用者也会怀疑 zksync 有可能储存他们的私钥</li>
-</ul>
 ]]></content>
     </entry>
     <entry>
