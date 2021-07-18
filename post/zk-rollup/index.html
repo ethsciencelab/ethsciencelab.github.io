@@ -2,17 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 Eth Science Lab | Eth Science Lab</title>
+<title>Layer2 &amp; zk rollup | Eth Science Lab</title>
 <link rel="shortcut icon" href="https://ethsciencelab.github.io/favicon.ico?v=1626613496650">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ethsciencelab.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="关于 Eth Science Lab | Eth Science Lab - Atom Feed" href="https://ethsciencelab.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Layer2 &amp; zk rollup | Eth Science Lab - Atom Feed" href="https://ethsciencelab.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="Eth Science Labs 是一个私人博客。它关于以太坊，更关于逻辑、科学、多元文化、自由和爱。
-最初的灵感来源于我经常逛的社区：Less Wrong，这是一个理性主义者集聚的场地。此外，Slate Star Codex 的作者 Sc..." />
+    <meta name="description" content="ZK rollup 简介：
+
+以太坊网络拥堵，矿工费高，影响以太坊生态，尤其是 defi 的发展 -&gt; layer 2
+有多种方法可以实现 Layer 2，zk rollup 是其中的一种
+可以把 zk rollup 想成一个链下的区..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -75,29 +78,49 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于 Eth Science Lab
+              Layer2 &amp; zk rollup
             </h2>
             <div class="post-info">
               <span>
-                2021-03-31
+                2021-04-02
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
             </div>
             
-              <img class="post-feature-image" src="https://ethsciencelab.github.io/post-images/关于eth-science-lab.png" alt="">
-            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>Eth Science Labs 是一个私人博客。它关于以太坊，更关于逻辑、科学、多元文化、自由和爱。</p>
-<p>最初的灵感来源于我经常逛的社区：Less Wrong，这是一个理性主义者集聚的场地。此外，Slate Star Codex 的作者 Scott Alexander，以及以太坊的创始人 Vitalik  Buterin 对我的影响也非常大。</p>
-<blockquote>
-<p>Certainly, most people on LessWrong examine our lives more carefully than the rest of the world. A lot of us have clear goals. Maybe not a full, cohesive belief structure, but pretty clear.</p>
-</blockquote>
-<p>这个博客也会遵循相同的宗旨，分享一些有意思的东西。更重要的，或许是保持持续而又仔细的社会探索，将事物关联在一起，筛选从而塑造想法。有谁不爱有趣的无限游戏呢？</p>
-<p>好了，祝你们和新朋友玩得开心！</p>
+                <p>ZK rollup 简介：</p>
+<ul>
+<li>以太坊网络拥堵，矿工费高，影响以太坊生态，尤其是 defi 的发展 -&gt; layer 2</li>
+<li>有多种方法可以实现 Layer 2，zk rollup 是其中的一种</li>
+<li>可以把 zk rollup 想成一个链下的区块链（相对于主链），大家在 zk rollup 进行交易之后，会汇总成一份状态更新，然后用零知识证明的方式提交到主链</li>
+<li>对于主链的矿工来说，他只需要验证一份交易，就等于验证了很多笔交易，因此实现扩容</li>
+<li>zksync 是 matter labs 推出的 zk rollup 产品。不同公司都可以推出自己的 zk rollup 方案，会产生好多个 zk rollup。</li>
+</ul>
+<p>zk rollup signing key</p>
+<ul>
+<li>在以太坊主链会有一个智能合约，可以想成是放在 L1 的金库，在 L2 会有一个相对应的金库
+<ul>
+<li>譬如我今天要使用 A 公司的 L2，我就要去 A 合约注册（L1-address, L2-public key)</li>
+<li>L2-public key 只要符合 A 公司的格式要求就可以，不见得一定要按照他们提供的方法生成</li>
+</ul>
+</li>
+<li>zksync 提供的做法是用 L1 的私钥对一串固定的 message 做签字，这个动作是在 zksync 提供的界面进行，产生的这个签名就是使用者在 L2 的私钥。
+<ul>
+<li>想法：这样一来，zksync 就可以直接确认该名使用者真的拥有特定的这个 L1 的私钥</li>
+</ul>
+</li>
+<li>zksync 要这么做的原因：因为主链的私钥只有 32 bytes，而 zksync 在 L2 用的新曲线（jubjub），私钥长度是 64 bytes。
+<ul>
+<li>使用新曲线是为了提升安全性提及增加运算效率</li>
+</ul>
+</li>
+<li>但是因为 L2 私钥的产生是在 zksync 的界面进行，如果攻击者将使用者带到一个长得很像但恶意的界面，使用者的私钥就会泄露。</li>
+<li>甚至可能使用者也会怀疑 zksync 有可能储存他们的私钥</li>
+</ul>
 
               </div>
               <div class="toc-container">
@@ -107,6 +130,15 @@
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://ethsciencelab.github.io/post/关于eth-science-lab/">
+              <h3 class="post-title">
+                关于 Eth Science Lab
+              </h3>
+            </a>
+          </div>
         
 
         
